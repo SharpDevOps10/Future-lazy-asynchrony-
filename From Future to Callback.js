@@ -27,3 +27,8 @@ const futureToCallback = (future) => (callback) => {
     (reason) => callback(reason),
   );
 };
+const future = new Future((resolve) => resolve('value'));
+const fnCallback = futureToCallback(future);
+fnCallback((e, result) => {
+  console.dir({callbackLast: result});
+})
