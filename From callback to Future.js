@@ -1,3 +1,5 @@
+'use strict';
+const fs = require('fs');
 class Future {
   constructor(executor) {
     this.executor = executor;
@@ -26,3 +28,10 @@ const futurify = (fn) => (...args) => new Future((resolve, reject) => {
     else resolve(data);
   });
 });
+
+const readFile = (name, callback) => fs.readFile(name, 'utf8', callback);
+const futureFile = futurify(readFile);
+
+futureFile('From callback to Future.js')
+  .map((x) => x.length)
+  .fork((x) => console.log('File size :', x));
