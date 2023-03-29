@@ -20,3 +20,9 @@ class Future {
     this.executor(successful, failed);
   }
 }
+const futurify = (fn) => (...args) => new Future((resolve, reject) => {
+  fn(...args, (error, data) => {
+    if (error) reject(error);
+    else resolve(data);
+  });
+});
