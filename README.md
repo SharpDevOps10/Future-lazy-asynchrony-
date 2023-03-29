@@ -14,7 +14,7 @@ chain expects a Future (or instance of the same Chain) to be returned.
 
   * `fork(Function, Function)` - starts the execution of Future
 ## Theory 
-If you want to find out more about `futures` , you can follow this links : 
+If you want to find out more about `futures` , you can follow these links : 
   * Wiki - https://en.wikipedia.org/wiki/Futures_and_promises
   * An article from habr - https://habr.com/ru/post/435838/
   * Timur Shemsedinov`s examples and lecture - https://github.com/HowProgrammingWorks/Future
