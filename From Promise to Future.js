@@ -22,3 +22,7 @@ class Future {
     this.executor(successful, failed);
   }
 }
+
+const futurify = (promise) => new Future((resolve, reject) => {
+  promise.then(resolve).catch(reject);
+});
