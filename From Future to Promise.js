@@ -24,4 +24,11 @@ class Future {
 const promisify = (future) => new Promise((resolve, reject) => {
   future.fork(resolve, reject);
 });
-
+const future = new Future((resolve) => resolve(69));
+const promise = promisify(future);
+promise.then(
+  (value) => console.log(value),
+  (error) => console.error(error),
+);
+const check = promise instanceof Promise;
+console.log(check);
