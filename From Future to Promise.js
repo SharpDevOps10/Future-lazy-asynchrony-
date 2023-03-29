@@ -21,3 +21,7 @@ class Future {
     this.executor(successful, failed);
   }
 }
+const promisify = (future) => new Promise((resolve, reject) => {
+  future.fork(resolve, reject);
+});
+
