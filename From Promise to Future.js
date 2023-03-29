@@ -26,3 +26,11 @@ class Future {
 const futurify = (promise) => new Future((resolve, reject) => {
   promise.then(resolve).catch(reject);
 });
+const promise = Promise.resolve(60);
+const future = futurify(promise);
+future.fork(
+  (error) => console.error(error),
+  (value) => console.log(value),
+);
+const check = future instanceof Future;
+console.log(check);
